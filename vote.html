@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Experience - Skiddo Banger Tunez</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="library-container">
+        <h1>Rate Your Experience</h1>
+        <p>How are the Tunezz hitting?</p>
+
+        <div class="star-rating">
+            <span class="star" onclick="rate(5)">★</span>
+            <span class="star" onclick="rate(4)">★</span>
+            <span class="star" onclick="rate(3)">★</span>
+            <span class="star" onclick="rate(2)">★</span>
+            <span class="star" onclick="rate(1)">★</span>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <textarea id="feedback" placeholder="Tell us more..." rows="3" style="width: 100%; border-radius: 10px; padding: 10px; background: #282828; color: white; border: none;"></textarea>
+        </div>
+
+        <button type="button" id="continue-btn" onclick="submitRating()">Submit Review</button>
+
+        <br><br>
+        <a href="library.html" style="color: #1DB954; text-decoration: none;">← Back to Music</a>
+    </div>
+
+    <script>
+        let currentRating = 0;
+        function rate(num) {
+            currentRating = num;
+            alert("You rated us " + num + " stars!");
+        }
+
+        function submitRating() {
+            const feedback = document.getElementById('feedback').value;
+            if(currentRating === 0) {
+                alert("Please select a star rating first!");
+            } else {
+                alert("Thanks for the " + currentRating + " star review! \nFeedback: " + feedback);
+                window.location.href = 'library.html';
+            }
+        }
+    </script>
+</body>
+</html>
